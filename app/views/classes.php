@@ -132,6 +132,8 @@ Author URL: http://w3layouts.com
                             <a href="../../app/views/index2.html" class="zoom d-block">
                                 <img class="card-img-bottom d-block" src="../../public/assets/images/rec2.png" alt="Card image cap">
                             </a>
+
+                            
                            
                         </div>
                         <div class="card-body course-details">
