@@ -4,25 +4,24 @@ Author URL: http://w3layouts.com
 -->
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 require_once __DIR__ . '/../app/controllers/UserController.php';
-
-$userController = new UserController(); // Initialiser le contrôleur
+$userController = new UserController();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['action'])) { // Vérifie si 'action' existe dans $_POST
+    if (isset($_POST['action'])) { 
         if ($_POST['action'] == 'login') {
             $message = $userController->login();
             if (isset($message)) {
-                echo "<div class='message'>$message</div>"; // Affiche le message d'erreur si présent
+                echo "<div class='message'>$message</div>";
             }
         } elseif ($_POST['action'] == 'signup') {
             $message = $userController->signup();
-            if ($message === "Inscription réussie ! Vous pouvez vous connecter.") {
-                header("Location: login.php");
-                exit();
+            if ($message === "Inscription réussie ! Veuillez vous connecter.") {
+                echo "<script>
+                    document.getElementById('loginModal').style.display = 'block';
+                    document.getElementById('signup-form').style.display = 'none';
+                    document.getElementById('login-form').style.display = 'block';
+                </script>";
             }
         } elseif ($_POST['action'] == 'logout') {
             session_start();
@@ -30,14 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../../public/index.php");
             exit();
         }
-    } else {
-        // Gérer le cas où 'action' n'est pas défini
-        echo "<div class='message'>Erreur : Action non spécifiée.</div>";
     }
 }
-
-
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -78,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <a class="nav-link" href="../app/views/classes.php">Recipes</a>
                         </li>
                         <li class="nav-item">
-                            <a id="addRecipeBtn" class="nav-link">Chefs</a>
+                            <a id="addRecipeBtn" class="nav-link">Login</a>
                         </li>
                     </ul>
                       <!-- Modale pour le login -->
@@ -91,27 +86,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-header">Welcome!</div>
                 <!-- Formulaire de connexion -->
                 <!-- Formulaire de connexion -->
-<!-- Formulaire de connexion -->
+<!-- Login Form -->
 <form id="login-form" action="" method="POST">
-    <input type="hidden" name="action" value="login"> <!-- Cela doit être là -->
-    <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-    <input type="password" name="password" placeholder="Mot de passe" required>
-    <button type="submit" class="button">Se connecter</button>
-    <span class="signup-link">Pas encore de compte ?&nbsp;
-        <a href="javascript:void(0);" class="link" id="show-signup">S'inscrire</a>
+    <input type="hidden" name="action" value="login"> <!-- This needs to be here -->
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit" class="button">Log In</button>
+    <span class="signup-link">Don't have an account yet?&nbsp;
+        <a href="javascript:void(0);" class="link" id="show-signup">Sign Up</a>
     </span>
 </form>
 
 
+
 <!-- Formulaire d'inscription (caché par défaut) -->
-<form id="signup-form" action="../public/index.php" method="POST" style="display: none;">
+<!-- Signup Form (hidden by default) -->
+<form id="signup-form" action="" method="POST" style="display: none;">
     <input type="hidden" name="action" value="signup">
-    <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+    <input type="text" name="username" placeholder="Username" required>
     <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Mot de passe" required>
-    <button type="submit" class="button">S'inscrire</button>
-    <span class="signup-link">Vous avez déjà un compte ?&nbsp;
-        <a href="javascript:void(0);" class="link" id="show-login">Se connecter</a>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit" class="button">Sign Up</button>
+    <span class="signup-link">Already have an account?&nbsp;
+        <a href="javascript:void(0);" class="link" id="show-login">Log In</a>
     </span>
 </form>
 
@@ -143,6 +140,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 modal.style.display = "none";
             }
         }
+        document.getElementById('show-signup').addEventListener('click', function() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'block';
+});
+
+document.getElementById('show-login').addEventListener('click', function() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+});
+
     </script>
                     <form action="#search" method="GET" class="d-flex search-header ms-lg-2">
                         <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
@@ -197,21 +204,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <h3 class="title-style">Learn how to cook from your house</h3>
-                    <p class="mt-3">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
-                        Mumquam eius modi tempora incidunt ut labore et.</p>
+                    
                     <div class="row mt-lg-5 mt-4">
                         <div class="col-sm-6 grids_info">
                             <i class="fas fa-utensils"></i>
                             <div class="detail mt-sm-4 mt-3">
                                 <h4>Easy Manual</h4>
-                                <p>Sed ut perspiciatis unde omnis iste natus.</p>
                             </div>
                         </div>
                         <div class="col-sm-6 grids_info mt-sm-0 mt-4">
                             <i class="fas fa-bread-slice"></i>
                             <div class="detail mt-sm-4 mt-3">
                                 <h4> For Everyone</h4>
-                                <p>Sed ut perspiciatis unde omnis iste natus.</p>
                             </div>
                         </div>
                     </div>
@@ -243,32 +247,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-6 ps-xl-5 ps-lg-4 mt-lg-0 mt-5">
                     <h5 class="sub-title">Our Features</h5>
                     <h3 class="title-style mb-4">Why Choose Us?</h3>
-                    <p>Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit.</p>
+                  
                     <div class="two-grids mt-5">
                         <div class="grids_info">
                             <i class="fas fa-trophy"></i>
                             <div class="detail">
                                 <h4>We Are Winners of 50 Competitions</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit.</p>
                             </div>
                         </div>
                         <div class="grids_info mt-xl-5 mt-lg-4 mt-5">
                             <i class="fas fa-user-friends"></i>
                             <div class="detail">
                                 <h4>27 Professional Chefs-Trainers</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit.</p>
+                               
                             </div>
                         </div>
                         <div class="grids_info mt-xl-5 mt-lg-4 mt-5">
                             <i class="fas fa-hourglass-half"></i>
                             <div class="detail">
                                 <h4>Guaranteed Fast Employment</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit.</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -364,8 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <h3>About Us</h3>
-                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nerihe re impedit quo
-                            minus id qd maxime aceat facere.</p>
+
                         <div class="columns-2 mt-4">
                             <ul class="social">
                                 <li><a href="#facebook"><i class="fab fa-facebook-f"></i></a>
@@ -415,11 +412,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-        <div class="copy-section text-center py-4">
-            <p class="copy-text py-1">&copy; 2022 Cooking. All rights reserved. Design by <a
-                    href="https://w3layouts.com/" target="_blank"> W3Layouts</a>
-            </p>
-        </div>
+   
     </footer>
     <!-- //footer -->
 

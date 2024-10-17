@@ -87,12 +87,12 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
         <h3 class="title-style text-center">My recipes</h3>
         <div class="row justify-content-center">
             
-            <!-- Recipe 1 -->
+            <!-- Recipe 1 - Chicken Curry -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index1.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec1.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec1.png" alt="Chicken Curry">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
@@ -114,23 +114,23 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
                                 <span class="meta-value"> 350 kcal</span>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recipe 2 -->
+            <!-- Recipe 2 - Beef Stew -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index2.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec2.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec2.png" alt="Beef Stew">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
-                            <a href="delete_recette.php?id=<?php echo $recipe['id']; ?>" class="receipe yellow ml-2" onclick="return confirm('Are you sure you want to delete this recipe?')">Delete</a>
-                            
+                            <a href="javascript:void(0);" class="receipe yellow ml-2" onclick="deleteRecipe(<?php echo $recipe['id']; ?>)">Delete</a>
+                        </div>
                     </div>
                     <div class="card-body course-details">
                         <div class="price-review d-flex justify-content-between mb-1 align-items-center">
@@ -142,23 +142,23 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                                 <li><span class="fas fa-star-o"></span></li>
                             </ul>
                         </div>
-                        <a href="../../app/views/index2.html" class="course-desc">Vegetable Soup</a>
+                        <a href="../../app/views/index2.html" class="course-desc">Beef Stew</a>
                         <div class="course-meta mt-4">
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
-                                <span class="meta-value">  150 kcal</span>
-                                </div>
+                                <span class="meta-value"> 500 kcal</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recipe 3 -->
+            <!-- Recipe 3 - Vegetable Stir-Fry -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index3.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec3.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec3.png" alt="Vegetable Stir-Fry">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
@@ -175,23 +175,23 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                                 <li><span class="fas fa-star-o"></span></li>
                             </ul>
                         </div>
-                        <a href="../../app/views/index3.html" class="course-desc">Lasagna</a>
+                        <a href="../../app/views/index3.html" class="course-desc">Vegetable Stir-Fry</a>
                         <div class="course-meta mt-4">
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
-                                <span class="meta-value"> 600 kcal</span>
-                                </div>
+                                <span class="meta-value"> 200 kcal</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recipe 4 -->
+            <!-- Recipe 4 - Pasta Carbonara -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index4.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec4.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec4.png" alt="Pasta Carbonara">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
@@ -208,23 +208,23 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                                 <li><span class="fas fa-star-o"></span></li>
                             </ul>
                         </div>
-                        <a href="../../app/views/index4.html" class="course-desc">Apple Tart</a>
+                        <a href="../../app/views/index4.html" class="course-desc">Pasta Carbonara</a>
                         <div class="course-meta mt-4">
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
-                                <span class="meta-value"> 450 kcal</span>
-                                </div>
+                                <span class="meta-value"> 400 kcal</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recipe 5 -->
+            <!-- Recipe 5 - Salmon Teriyaki -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index5.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec5.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec5.png" alt="Salmon Teriyaki">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
@@ -241,23 +241,23 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                                 <li><span class="fas fa-star-o"></span></li>
                             </ul>
                         </div>
-                        <a href="../../app/views/index5.html" class="course-desc">tuna rillettes</a>
+                        <a href="../../app/views/index5.html" class="course-desc">Salmon Teriyaki</a>
                         <div class="course-meta mt-4">
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
-                                <span class="meta-value"> 250 kcal</span>
-                                </div>
+                                <span class="meta-value"> 450 kcal</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Recipe 6 -->
+            <!-- Recipe 6 - Lasagna -->
             <div class="col-lg-4 col-md-6 item mt-5">
                 <div class="card">
                     <div class="card-header p-0 position-relative">
                         <a href="../../app/views/index6.html" class="zoom d-block">
-                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec6.png" alt="Card image cap">
+                            <img class="card-img-bottom d-block" src="../../public/assets/images/rec6.png" alt="Lasagna">
                         </a>
                         <div class="post-pos">
                             <a href="edit_recette.php?title=<?php echo urlencode($recipe['titre']); ?>" class="receipe blue">Update</a>
@@ -274,12 +274,12 @@ require_once '../controllers/UserController.php'; // Chemin vers UserController.
                                 <li><span class="fas fa-star-o"></span></li>
                             </ul>
                         </div>
-                        <a href="../../app/views/index6.html" class="course-desc">Chocolate Cake</a>
+                        <a href="../../app/views/index6.html" class="course-desc">Lasagna</a>
                         <div class="course-meta mt-4">
                             <div class="meta-item course-lesson">
                                 <span class="fas fa-fire"></span>
-                                <span class="meta-value">  550 kcal</span>
-                                </div>
+                                <span class="meta-value"> 600 kcal</span>
+                            </div>
                         </div>
                     </div>
                 </div>

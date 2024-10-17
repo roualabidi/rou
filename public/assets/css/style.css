@@ -1,0 +1,30 @@
+
+    
+body {
+    background-color: rgb(255, 255, 255); /* Couleur de fond */
+    font-family: Arial, sans-serif; /* Police de caractère */
+}
+
+h1, h2 {
+    color: #dc3545; /* Couleur rouge pour les titres */
+    font-family: 'Georgia', serif; /* Changer la police pour les titres */
+    margin: 20px 0; /* Marge en haut et en bas des titres */
+}
+
+ul {
+    margin: 20px 0; /* Marge autour des listes */
+    padding: 0; /* Supprimer le padding à l'intérieur des listes */
+    background-color: transparent; /* Fond transparent pour les listes */
+    border-radius: 0; /* Pas de coins arrondis */
+    box-shadow: none; /* Pas d'ombre */
+    list-style-position: inside; /* Positionner les puces ou numéros à l'intérieur */
+}
+
+ol {
+    margin: 20px 0; /* Marge autour des listes ordonnées */
+    padding: 0; /* Supprimer le padding à l'intérieur des listes ordonnées */
+}
+
+.content {
+    padding: 20px; /* Padding autour du contenu */
+}

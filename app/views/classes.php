@@ -82,8 +82,7 @@ Author URL: http://w3layouts.com
             <div class="container pt-5 pb-sm-4 pb-2">
                 <h4 class="inner-text-title font-weight-bold pt-5">Cooking Courses</h4>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="index.php">Home</a></li>
-                    <li class="active"><i class="fas fa-angle-right mx-2"></i>Classes</li>
+                   
                 </ul>
             </div>
         </div>
@@ -411,9 +410,7 @@ Author URL: http://w3layouts.com
                         </div>
                         <div class="grids-content">
                             <h5 class="mb-3"><a href="about.html">Find Course</a></h5>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit accusa ntium dolor emque
-                                laudan erts.</p>
-                            <a href="services.html" class="btn btn-style btn-style-primary mt-3">Learn More</a>
+                        
                         </div>
                     </div>
                 </div>
@@ -424,9 +421,7 @@ Author URL: http://w3layouts.com
                         </div>
                         <div class="grids-content">
                             <h5 class="mb-3"><a href="about.html">Learn Online</a></h5>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit accusa ntium dolor emque
-                                laudan erts.</p>
-                            <a href="services.html" class="btn btn-style btn-style-primary mt-3">Learn More</a>
+                          
                         </div>
                     </div>
                 </div>
@@ -437,9 +432,7 @@ Author URL: http://w3layouts.com
                         </div>
                         <div class="grids-content">
                             <h5 class="mb-3"><a href="about.html">Make Your Food</a></h5>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit accusa ntium dolor emque
-                                laudan erts.</p>
-                            <a href="services.html" class="btn btn-style btn-style-primary mt-3">Learn More</a>
+                           
                         </div>
                     </div>
                 </div>

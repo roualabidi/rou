@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 $host = 'localhost';
 $db = 'project';
 $user = 'root';
-$pass = 'new_password';
+$pass = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
